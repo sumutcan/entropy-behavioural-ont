@@ -1,0 +1,730 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY vs "http://www.w3.org/2003/06/sw-vocab-status/ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://entropy-project.eu/behavioral#"
+     xml:base="http://entropy-project.eu/behavioral"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+    <owl:Ontology rdf:about="http://entropy-project.eu/behavioural">
+        <rdfs:label>ENTROPY Behavioural Intervention Ontology</rdfs:label>
+        <rdfs:comment>This ontology is designed to represent behavioural interventions in terms of recommendation and persuasive messages.</rdfs:comment>
+        <dc:creator>Anna Fensel (University of Innsbruck, STI Innsbruck)</dc:creator>
+        <dc:contributor>Angeliki Bousiou (INTELEN Inc.)</dc:contributor>
+        <dc:creator>Umutcan Simsek (University of Innsbruck, STI Innsbruck)</dc:creator>
+        <owl:versionIRI rdf:resource="http://entropy-project.eu/behavioural/1.0.0"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/contributor -->
+
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- http://www.w3.org/2003/06/sw-vocab-status/ns#term_status -->
+
+    <owl:AnnotationProperty rdf:about="&vs;term_status">
+        <rdfs:comment>&apos;unstable&apos;
+    The meaning, deployment practices, documentation (or important associated software/services) associated with this term are liable to change arbitrarily at some point in the future. They may not, but stability is not guaranteed. Use with caution.
+&apos;testing&apos;
+    The meaning, deployment practices, documentation and general understanding of this term are approaching some stability, but changes are still possible due to implementation experience or other unanticipated factors.
+&apos;stable&apos;
+    The term is relatively stable, and its documentation and meaning are not expected to change substantially.
+&apos;archaic&apos;
+    This term is marked as old-fashioned; although used, it is not considered typical of current best practice and alternative expressions may be preferable. </rdfs:comment>
+        <rdfs:seeAlso rdf:resource="https://www.w3.org/2003/06/sw-vocab-status/note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#activity -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#activity">
+        <rdfs:label>activity</rdfs:label>
+        <rdfs:comment>The property that relates a Task to an Activity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Activity"/>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#currentSituation -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#currentSituation">
+        <rdfs:label>current situation</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>The property that relates a Person to a Situation. (see Situation)</rdfs:comment>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Situation"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#difficulty -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#difficulty">
+        <rdfs:label>difficulty level</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A Task can have a Difficulty level</rdfs:comment>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Difficulty"/>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#educationalLevel -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#educationalLevel">
+        <rdfs:label>educational level</rdfs:label>
+        <rdfs:comment>The property that indicates a person&apos;s educational level.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#feedbackTarget -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#feedbackTarget">
+        <rdfs:label>feedback target</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>The property that relates a Feedback to a Recommendation</rdfs:comment>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Feedback"/>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Recommendation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#givesFeedback -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#givesFeedback">
+        <rdfs:label>gives feedback</rdfs:label>
+        <rdfs:comment>The property that indicates the Person who gives a certain Feedback.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Feedback"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#hasDevice -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#hasDevice">
+        <rdfs:label>has device</rdfs:label>
+        <rdfs:comment>An Agent can have a Device.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:range rdf:resource="http://cenitmio.es/ontologies/Device.owl#Device"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#hasPersona -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#hasPersona">
+        <rdfs:label>has persona</rdfs:label>
+        <rdfs:comment>A Person can have Persona(s)</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Persona"/>
+        <rdfs:domain rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#nextTask -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#nextTask">
+        <rdfs:label>next task</rdfs:label>
+        <rdfs:comment>The property that indicates that next Task in a Task sequence.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#previousTask -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#previousTask">
+        <rdfs:label>previous task</rdfs:label>
+        <rdfs:comment>see nextTask</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <owl:inverseOf rdf:resource="http://entropy-project.eu/behavioural#nextTask"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#targetUser -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#targetUser">
+        <rdfs:label>target user</rdfs:label>
+        <rdfs:comment>A recommendation has a target user which is a Person. This property might update its range to Agent in the future.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Recommendation"/>
+        <rdfs:range rdf:resource="&foaf;Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/ontology/wi/core#preference -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/ontology/wi/core#preference">
+        <rdfs:label>has preference</rdfs:label>
+        <rdfs:comment>A link between an agent and a weighted interest</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/wi/core#"/>
+        <rdfs:range rdf:resource="http://purl.org/ontology/wi/core#WeightedInterest"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/account -->
+
+    <owl:ObjectProperty rdf:about="&foaf;account">
+        <rdfs:label>account</rdfs:label>
+        <rdfs:comment>The property that relates an Agent to an Online Account</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;OnlineAccount"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/member -->
+
+    <owl:ObjectProperty rdf:about="&foaf;member">
+        <rdfs:label>member</rdfs:label>
+        <rdfs:comment>The property that indicates that an Agent is a member of a Group</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:range rdf:resource="&foaf;Group"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#completionMessage -->
+
+    <owl:DatatypeProperty rdf:about="http://entropy-project.eu/behavioural#completionMessage">
+        <rdfs:label>completion message</rdfs:label>
+        <rdfs:comment>This property indicates the textual message to be shown after the completion of a Task.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#weeklyHours -->
+
+    <owl:DatatypeProperty rdf:about="http://entropy-project.eu/behavioural#weeklyHours">
+        <rdfs:label>weekly hours</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:comment>Weekly hours of an employee. Value of this property may be used for behavioural analytics</rdfs:comment>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Employee"/>
+        <rdfs:range rdf:resource="&xsd;integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/age -->
+
+    <owl:DatatypeProperty rdf:about="&foaf;age">
+        <rdfs:label>age</rdfs:label>
+        <rdfs:comment>Age of an Agent</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cenitmio.es/ontologies/Device.owl#Device -->
+
+    <owl:Class rdf:about="http://cenitmio.es/ontologies/Device.owl#Device">
+        <rdfs:label>Device</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A Device</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://cenitmio.es/ontologies/Device.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cenitmio.es/ontologies/Device.owl#MobileDevice -->
+
+    <owl:Class rdf:about="http://cenitmio.es/ontologies/Device.owl#MobileDevice">
+        <rdfs:label>Mobile Device</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cenitmio.es/ontologies/Device.owl#Device"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A portable device</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://cenitmio.es/ontologies/Device.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://cenitmio.es/ontologies/Device.owl#MobilePhone -->
+
+    <owl:Class rdf:about="http://cenitmio.es/ontologies/Device.owl#MobilePhone">
+        <rdfs:label>Mobile Phone</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://cenitmio.es/ontologies/Device.owl#MobileDevice"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A mobile phone. This class represents mobile phone of a person and its properties that may be used to identify a person or its certain context elements.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://cenitmio.es/ontologies/Device.owl"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Activity -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Activity">
+        <rdfs:label>Activity</rdfs:label>
+        <rdfs:comment>An activity can be part of task. Every instance of an activity or its subclasses might have different properties depending on activities nature. 
+
+e.g. Walk activity can have a distance property.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Bike -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Bike">
+        <rdfs:label>Bike</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#OutdoorActivity"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>Biking activity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#CloseWindow -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#CloseWindow">
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#IndoorActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Difficulty -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Difficulty">
+        <rdfs:label>Difficulty</rdfs:label>
+        <rdfs:comment>This class represents difficulty levels. A typical usage of a difficulty instance is a Task.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#EducationalLevel -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#EducationalLevel">
+        <rdfs:label>Educational Level</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>Educational level may be used for behavioural analysis and recommendations.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Employee -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Employee">
+        <rdfs:label>Employee</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:comment>A subclass of Person that represents the people who work at an institution.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#FacebookAccount -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#FacebookAccount">
+        <rdfs:label>Facebook Account</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;OnlineAccount"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A subclass of OnlineAccount. It may be used to identify a person or to retrieve some profile information for behavioural analysis.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Feedback -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Feedback">
+        <rdfs:label>Feedback</rdfs:label>
+        <rdfs:comment>People can give positive or negative feedback to a recommendation.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#FinalTask -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#FinalTask">
+        <rdfs:label>Final Task</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://entropy-project.eu/behavioural#nextTask"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment>The final task of a sequence.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#IndoorActivity -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#IndoorActivity">
+        <rdfs:label>Indoor Activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Activity"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A supertype of indoor activities. These activities can be part of a task.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Message -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Message">
+        <rdfs:label>Message</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Recommendation"/>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>The Message class represents a persuasive message targeting a person.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#NegativeFeedback -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#NegativeFeedback">
+        <rdfs:label>Negative Feedback</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Feedback"/>
+        <owl:disjointWith rdf:resource="http://entropy-project.eu/behavioural#PositiveFeedback"/>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#OpenWindow -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#OpenWindow">
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#IndoorActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#OutdoorActivity -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#OutdoorActivity">
+        <rdfs:label>Outdoor Activity</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Activity"/>
+        <rdfs:comment>A supertype of outdoor activities. These activities can be part of a task.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Persona -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Persona">
+        <rdfs:label>Persona</rdfs:label>
+        <rdfs:comment>This class represents a persona label, produced by behavioural analysis.</rdfs:comment>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#PositiveFeedback -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#PositiveFeedback">
+        <rdfs:label>Positive Feedback</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Feedback"/>
+        <vs:term_status>unstable</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Recommendation -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Recommendation">
+        <rdfs:label>Recommendation</rdfs:label>
+        <rdfs:comment>This class represents the recommendations aiming to change a certain behaviour. A recommendation can be in form of a task or message.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+        <rdfs:comment>A persuasive message </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Situation -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Situation">
+        <rdfs:label>Situation</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>Current sitution of a user. Situation is inferred by context reasoning based on different context elements (time, location etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Student -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Student">
+        <rdfs:label>Student</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A student in an educational organization. The seperation between a student and an employee is important, since they have different movement patterns during a day. (e.g. students usually do not have dedicated offices, they are more felixable in terms of location)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Task -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Task">
+        <rdfs:label>Task</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Recommendation"/>
+        <rdfs:comment>Task is a form of recommendation. A task can be followed by another Task which forms a sequence. Every task contains an activity.</rdfs:comment>
+        <vs:term_status>testing</vs:term_status>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#TurnLightsOff -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#TurnLightsOff">
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#IndoorActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#TurnLightsOn -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#TurnLightsOn">
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#IndoorActivity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Walk -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Walk">
+        <rdfs:label>Walk</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#OutdoorActivity"/>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>Walking activity</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/ontology/wi/core#WeightedInterest -->
+
+    <owl:Class rdf:about="http://purl.org/ontology/wi/core#WeightedInterest">
+        <rdfs:label>Weighted Interest</rdfs:label>
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>A weighted interest object, which also can have interest dynamics etc. This concept may be used to represent questionaire and/or survey results for behavioural analysis.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/wi/core#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent">
+        <rdfs:label>Agent</rdfs:label>
+        <rdfs:comment>The Agent class is the class of agents; things that do stuff.</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:seeAlso rdf:resource="http://xmlns.com/foaf/spec/#term_Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Group -->
+
+    <owl:Class rdf:about="&foaf;Group">
+        <rdfs:label>Group</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:comment>The Group class represents a collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions).
+
+In the context of this vocabulary, Group concept represents a group of people that share some common characteristics. Group instances may be created by behavioural analysis and be used in recommendation process.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
+
+    <owl:Class rdf:about="&foaf;OnlineAccount">
+        <rdfs:label>Online Account</rdfs:label>
+        <rdfs:comment>The OnlineAccount class represents the provision of some form of online service, by some party  to some Agent.</rdfs:comment>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person">
+        <rdfs:label>Person</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:comment>The Person class represents people.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cenitmio.es/ontologies/Device.owl#Easy -->
+
+    <owl:NamedIndividual rdf:about="http://cenitmio.es/ontologies/Device.owl#Easy">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#Difficulty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Doctor -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#Doctor">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
+        <rdfs:label>Doctorate Degree</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Hard -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#Hard">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#Difficulty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#HighSchool -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#HighSchool">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
+        <rdfs:label>High School Diploma</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Master -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#Master">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
+        <rdfs:label>Master&apos;s Degree</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Medium -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#Medium">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#Difficulty"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Undergraduate -->
+
+    <owl:NamedIndividual rdf:about="http://entropy-project.eu/behavioural#Undergraduate">
+        <rdf:type rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
+        <rdfs:label>Undergraduate Degree</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
