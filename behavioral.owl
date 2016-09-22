@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE rdf:RDF [
-    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY dcterms "http://purl.org/dc/terms/" >
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
@@ -16,17 +16,20 @@
      xml:base="http://entropy-project.eu/behavioral"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#">
+     xmlns:vs="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://entropy-project.eu/behavioural">
         <rdfs:label>ENTROPY Behavioural Intervention Ontology</rdfs:label>
+        <dcterms:created rdf:datatype="&xsd;dateTime">2016-08-16</dcterms:created>
+        <dcterms:licence rdf:datatype="&xsd;string">This work is licensed under a Creative Commons Attribution License (version 3.0) &lt;http://creativecommons.org/licenses/by/3.0/&gt;</dcterms:licence>
         <rdfs:comment>This ontology is designed to represent behavioural interventions in terms of recommendation and persuasive messages.</rdfs:comment>
         <dc:creator>Anna Fensel (University of Innsbruck, STI Innsbruck)</dc:creator>
         <dc:contributor>Angeliki Bousiou (INTELEN Inc.)</dc:contributor>
         <dc:creator>Umutcan Simsek (University of Innsbruck, STI Innsbruck)</dc:creator>
+        <dcterms:publisher rdf:resource="http://sti2.at"/>
         <owl:versionIRI rdf:resource="http://entropy-project.eu/behavioural/1.0.0"/>
     </owl:Ontology>
     
@@ -107,7 +110,7 @@
         <vs:term_status>unstable</vs:term_status>
         <rdfs:comment>The property that relates a Person to a Situation. (see Situation)</rdfs:comment>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Situation"/>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     </owl:ObjectProperty>
     
 
@@ -131,7 +134,7 @@
         <rdfs:comment>The property that indicates a person&apos;s educational level.</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#EducationalLevel"/>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     </owl:ObjectProperty>
     
 
@@ -155,7 +158,7 @@
         <rdfs:comment>The property that indicates the Person who gives a certain Feedback.</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Feedback"/>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     </owl:ObjectProperty>
     
 
@@ -167,7 +170,7 @@
         <rdfs:comment>An Agent can have a Device.</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:range rdf:resource="http://cenitmio.es/ontologies/Device.owl#Device"/>
-        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     </owl:ObjectProperty>
     
 
@@ -179,7 +182,7 @@
         <rdfs:comment>A Person can have Persona(s)</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Persona"/>
-        <rdfs:domain rdf:resource="&foaf;Person"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
     </owl:ObjectProperty>
     
 
@@ -192,6 +195,7 @@
         <vs:term_status>testing</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Task"/>
         <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
+        <owl:inverseOf rdf:resource="http://entropy-project.eu/behavioural#previousTask"/>
     </owl:ObjectProperty>
     
 
@@ -204,7 +208,6 @@
         <vs:term_status>testing</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Task"/>
         <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Task"/>
-        <owl:inverseOf rdf:resource="http://entropy-project.eu/behavioural#nextTask"/>
     </owl:ObjectProperty>
     
 
@@ -216,7 +219,7 @@
         <rdfs:comment>A recommendation has a target user which is a Person. This property might update its range to Agent in the future.</rdfs:comment>
         <vs:term_status>testing</vs:term_status>
         <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Intervention"/>
-        <rdfs:range rdf:resource="&foaf;Person"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     </owl:ObjectProperty>
     
 
@@ -229,33 +232,33 @@
         <vs:term_status>unstable</vs:term_status>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/wi/core#"/>
         <rdfs:range rdf:resource="http://purl.org/ontology/wi/core#WeightedInterest"/>
-        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://xmlns.com/foaf/0.1/account -->
 
-    <owl:ObjectProperty rdf:about="&foaf;account">
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/account">
         <rdfs:label>account</rdfs:label>
         <rdfs:comment>The property that relates an Agent to an Online Account</rdfs:comment>
         <vs:term_status>stable</vs:term_status>
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
-        <rdfs:domain rdf:resource="&foaf;Agent"/>
-        <rdfs:range rdf:resource="&foaf;OnlineAccount"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
     </owl:ObjectProperty>
     
 
 
     <!-- http://xmlns.com/foaf/0.1/member -->
 
-    <owl:ObjectProperty rdf:about="&foaf;member">
+    <owl:ObjectProperty rdf:about="http://xmlns.com/foaf/0.1/member">
         <rdfs:label>member</rdfs:label>
         <rdfs:comment>The property that indicates that an Agent is a member of a Group</rdfs:comment>
         <vs:term_status>stable</vs:term_status>
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
-        <rdfs:domain rdf:resource="&foaf;Agent"/>
-        <rdfs:range rdf:resource="&foaf;Group"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
+        <rdfs:range rdf:resource="http://xmlns.com/foaf/0.1/Group"/>
     </owl:ObjectProperty>
     
 
@@ -297,12 +300,12 @@
 
     <!-- http://xmlns.com/foaf/0.1/age -->
 
-    <owl:DatatypeProperty rdf:about="&foaf;age">
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/age">
         <rdfs:label>age</rdfs:label>
         <rdfs:comment>Age of an Agent</rdfs:comment>
         <vs:term_status>stable</vs:term_status>
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
-        <rdfs:domain rdf:resource="&foaf;Agent"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
     </owl:DatatypeProperty>
     
 
@@ -408,7 +411,7 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#Employee">
         <rdfs:label>Employee</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <rdfs:comment>A subclass of Person that represents the people who work at an institution.</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
     </owl:Class>
@@ -419,7 +422,7 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#FacebookAccount">
         <rdfs:label>Facebook Account</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&foaf;OnlineAccount"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/OnlineAccount"/>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:comment>A subclass of OnlineAccount. It may be used to identify a person or to retrieve some profile information for behavioural analysis.</rdfs:comment>
     </owl:Class>
@@ -468,7 +471,7 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#Intervention">
         <rdfs:label>Intervention</rdfs:label>
         <vs:term_status>testing</vs:term_status>
-        <rdfs:comment>This class represents the intervention aiming to change a certain behaviour. An intervention can be in different forms (e.g Task, Message).</rdfs:comment>
+        <rdfs:comment>This class represents an intervention aiming to change a certain behaviour. An intervention can be in different forms (e.g Task, Message).</rdfs:comment>
     </owl:Class>
     
 
@@ -548,7 +551,7 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#Student">
         <rdfs:label>Student</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&foaf;Person"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:comment>A student in an educational organization. The seperation between a student and an employee is important, since they have different movement patterns during a day. (e.g. students usually do not have dedicated offices, they are more felixable in terms of location)</rdfs:comment>
     </owl:Class>
@@ -596,7 +599,10 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
     <!-- http://entropy-project.eu/gamification#Quiz -->
 
     <owl:Class rdf:about="http://entropy-project.eu/gamification#Quiz">
+        <rdfs:label>Quiz</rdfs:label>
         <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Intervention"/>
+        <rdfs:comment>A gamified quiz</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://entropy-project.eu/gamification"/>
     </owl:Class>
     
 
@@ -614,7 +620,7 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
 
     <!-- http://xmlns.com/foaf/0.1/Agent -->
 
-    <owl:Class rdf:about="&foaf;Agent">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Agent">
         <rdfs:label>Agent</rdfs:label>
         <rdfs:comment>The Agent class is the class of agents; things that do stuff.</rdfs:comment>
         <vs:term_status>stable</vs:term_status>
@@ -626,9 +632,9 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
 
     <!-- http://xmlns.com/foaf/0.1/Group -->
 
-    <owl:Class rdf:about="&foaf;Group">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Group">
         <rdfs:label>Group</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <vs:term_status>stable</vs:term_status>
         <rdfs:comment>The Group class represents a collection of individual agents (and may itself play the role of a Agent, ie. something that can perform actions).
 
@@ -640,7 +646,7 @@ In the context of this vocabulary, Group concept represents a group of people th
 
     <!-- http://xmlns.com/foaf/0.1/OnlineAccount -->
 
-    <owl:Class rdf:about="&foaf;OnlineAccount">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/OnlineAccount">
         <rdfs:label>Online Account</rdfs:label>
         <rdfs:comment>The OnlineAccount class represents the provision of some form of online service, by some party  to some Agent.</rdfs:comment>
         <vs:term_status>stable</vs:term_status>
@@ -651,9 +657,9 @@ In the context of this vocabulary, Group concept represents a group of people th
 
     <!-- http://xmlns.com/foaf/0.1/Person -->
 
-    <owl:Class rdf:about="&foaf;Person">
+    <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
         <rdfs:label>Person</rdfs:label>
-        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Agent"/>
         <vs:term_status>stable</vs:term_status>
         <rdfs:comment>The Person class represents people.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
