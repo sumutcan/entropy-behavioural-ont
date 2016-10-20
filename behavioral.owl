@@ -310,6 +310,30 @@
     
 
 
+    <!-- http://xmlns.com/foaf/0.1/firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/firstName">
+        <rdfs:label>first name</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:comment>The first name of a person.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://xmlns.com/foaf/0.1/lastName">
+        <rdfs:label>last name</rdfs:label>
+        <vs:term_status>stable</vs:term_status>
+        <rdfs:comment>The last name of a person.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://xmlns.com/foaf/0.1/"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
