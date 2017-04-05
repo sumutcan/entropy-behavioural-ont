@@ -27,10 +27,11 @@
         <dcterms:licence rdf:datatype="&xsd;string">This work is licensed under a Creative Commons Attribution License (version 3.0) &lt;http://creativecommons.org/licenses/by/3.0/&gt;</dcterms:licence>
         <rdfs:comment>This ontology is designed to represent behavioural interventions in terms of recommendation and persuasive messages.</rdfs:comment>
         <dc:creator>Anna Fensel (University of Innsbruck, STI Innsbruck)</dc:creator>
+        <owl:versionInfo>1.1.0</owl:versionInfo>
         <dc:contributor>Angeliki Bousiou (INTELEN Inc.)</dc:contributor>
         <dc:creator>Umutcan Simsek (University of Innsbruck, STI Innsbruck)</dc:creator>
         <dcterms:publisher rdf:resource="http://sti2.at"/>
-        <owl:versionIRI rdf:resource="http://entropy-project.eu/behavioural/1.0.0"/>
+        <owl:versionIRI rdf:resource="http://entropy-project.eu/behavioural/1.1.0"/>
     </owl:Ontology>
     
 
@@ -183,6 +184,24 @@
         <vs:term_status>unstable</vs:term_status>
         <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#Persona"/>
         <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#hasWorkingEngagement -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#hasWorkingEngagement">
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#WorkingEngagement"/>
+        <rdfs:domain rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#isValidatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://entropy-project.eu/behavioural#isValidatedBy">
+        <rdfs:range rdf:resource="http://entropy-project.eu/behavioural#ActionValidation"/>
+        <rdfs:domain rdf:resource="http://entropy-project.eu/behavioural#Activity"/>
     </owl:ObjectProperty>
     
 
@@ -380,14 +399,20 @@
     
 
 
+    <!-- http://entropy-project.eu/behavioural#ActionValidation -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#ActionValidation"/>
+    
+
+
     <!-- http://entropy-project.eu/behavioural#Activity -->
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#Activity">
         <rdfs:label>Activity</rdfs:label>
-        <rdfs:comment>An activity can be part of task. Every instance of an activity or its subclasses might have different properties depending on activities nature. 
+        <vs:term_status>unstable</vs:term_status>
+        <rdfs:comment>An activity can be part of task. Every instance of an activity or its subclasses might have different properties depending on activities nature.
 
 e.g. Walk activity can have a distance property.</rdfs:comment>
-        <vs:term_status>unstable</vs:term_status>
     </owl:Class>
     
 
@@ -479,6 +504,22 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
     
 
 
+    <!-- http://entropy-project.eu/behavioural#GamePreference -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#GamePreference">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/wi/core#WeightedInterest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#Gamer -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Gamer">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
     <!-- http://entropy-project.eu/behavioural#IndoorActivity -->
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#IndoorActivity">
@@ -496,6 +537,14 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
         <rdfs:label>Intervention</rdfs:label>
         <vs:term_status>testing</vs:term_status>
         <rdfs:comment>This class represents an intervention aiming to change a certain behaviour. An intervention can be in different forms (e.g Task, Message).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://entropy-project.eu/behavioural#LifestylePreference -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#LifestylePreference">
+        <rdfs:subClassOf rdf:resource="http://purl.org/ontology/wi/core#WeightedInterest"/>
     </owl:Class>
     
 
@@ -561,6 +610,14 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
     
 
 
+    <!-- http://entropy-project.eu/behavioural#Question -->
+
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#Question">
+        <rdfs:subClassOf rdf:resource="http://xmlns.com/foaf/0.1/Person"/>
+    </owl:Class>
+    
+
+
     <!-- http://entropy-project.eu/behavioural#Situation -->
 
     <owl:Class rdf:about="http://entropy-project.eu/behavioural#Situation">
@@ -620,14 +677,9 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
     
 
 
-    <!-- http://entropy-project.eu/gamification#Quiz -->
+    <!-- http://entropy-project.eu/behavioural#WorkingEngagement -->
 
-    <owl:Class rdf:about="http://entropy-project.eu/gamification#Quiz">
-        <rdfs:label>Quiz</rdfs:label>
-        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Intervention"/>
-        <rdfs:comment>A gamified quiz</rdfs:comment>
-        <rdfs:isDefinedBy rdf:resource="http://entropy-project.eu/gamification"/>
-    </owl:Class>
+    <owl:Class rdf:about="http://entropy-project.eu/behavioural#WorkingEngagement"/>
     
 
 
@@ -638,6 +690,17 @@ e.g. Walk activity can have a distance property.</rdfs:comment>
         <vs:term_status>unstable</vs:term_status>
         <rdfs:comment>A weighted interest object, which also can have interest dynamics etc. This concept may be used to represent questionaire and/or survey results for behavioural analysis.</rdfs:comment>
         <rdfs:isDefinedBy rdf:resource="http://purl.org/ontology/wi/core#"/>
+    </owl:Class>
+    
+
+
+    <!-- http://semweb.datasciencelab.be/ns/go#QuizChallenge -->
+
+    <owl:Class rdf:about="http://semweb.datasciencelab.be/ns/go#QuizChallenge">
+        <rdfs:label>Quiz</rdfs:label>
+        <rdfs:subClassOf rdf:resource="http://entropy-project.eu/behavioural#Intervention"/>
+        <rdfs:comment>A gamified quiz</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://entropy-project.eu/gamification"/>
     </owl:Class>
     
 
